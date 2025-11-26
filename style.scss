@@ -1,0 +1,348 @@
+@use "sass:color";
+
+// Color palette
+$silver: #a2a29e;
+$shadow-grey: #272727;
+$brick-red: #b22127;
+$deep-crimson: #8f1218;
+$porcelain: #fcfbf6;
+
+window.Bar {
+  background: transparent;
+  color: $porcelain;
+  font-family: "FiraCode Nerd Font Mono";
+  font-size: 12px;
+  font-weight: bold;
+
+  > box {
+    margin: 5px 8px 0 8px;
+  }
+
+  .island {
+    background: rgba($shadow-grey, 0.95);
+    border-radius: 12px;
+    padding: 0 8px;
+    box-shadow: 0 2px 8px rgba(black, 0.3);
+  }
+
+  .window-title {
+    padding: 0 16px;
+
+    label {
+      font-size: 13px;
+      color: $porcelain;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .workspaces button.launcher {
+    min-width: 18px;
+    min-height: 18px;
+    border-radius: 4px;
+    margin: 0 6px 0 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    transition: all 200ms ease;
+
+    &:hover {
+      background: rgba($brick-red, 0.2);
+      border-radius: 6px;
+    }
+
+    label {
+      margin: 0;
+      padding: 0;
+      font-weight: bold;
+    }
+  }
+
+  .workspaces button.workspace {
+    min-width: 18px;
+    min-height: 18px;
+    border-radius: 4px;
+    margin: 0 2px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    transition: all 200ms ease;
+
+    &:hover {
+      background: rgba($brick-red, 0.15);
+      transform: scale(1.1);
+    }
+
+    &.active {
+      background: transparent;
+
+      &:hover {
+        background: rgba($brick-red, 0.1);
+      }
+    }
+
+    image {
+      min-width: 14px;
+      min-height: 14px;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  menubutton.power-menu {
+    min-height: 18px;
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+
+    > button {
+      min-height: 18px;
+      border: none;
+      background: transparent;
+      padding: 0;
+      margin: 0;
+      font-size: 16px;
+      border-radius: 4px;
+      transition: all 200ms ease;
+
+      &:hover {
+        background: rgba($brick-red, 0.15);
+        border-radius: 8px;
+      }
+
+      label {
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+
+  popover.power-menu-popup {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+
+    > contents {
+      background: transparent;
+      border: none;
+    }
+
+    box {
+      background: rgba($shadow-grey, 0.98);
+      border-radius: 12px;
+      padding: 6px;
+      border: none;
+    }
+
+    button.power-option {
+      background: transparent;
+      border: none;
+      border-radius: 6px;
+      padding: 4px 8px;
+      margin: 2px 0;
+      transition: all 200ms ease;
+
+      &:hover {
+        background: rgba($brick-red, 0.2);
+      }
+
+      box {
+        background: transparent;
+
+        label.power-icon {
+          font-size: 16px;
+          margin-right: 8px;
+        }
+
+        label.power-label {
+          font-size: 13px;
+          color: $porcelain;
+        }
+      }
+    }
+  }
+
+  button.bluetooth-button {
+    min-height: 18px;
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: all 200ms ease;
+
+    &:hover {
+      background: rgba($brick-red, 0.15);
+      border-radius: 8px;
+    }
+
+    label {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  button.sound-button {
+    min-height: 18px;
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: all 200ms ease;
+
+    &:hover {
+      background: rgba($brick-red, 0.15);
+      border-radius: 8px;
+    }
+
+    label {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  label.time-label {
+    font-size: 13px;
+    color: $porcelain;
+    padding-right: 12px;
+    margin: 0;
+  }
+
+  .system-stats {
+    label {
+      font-size: 13px;
+      color: $porcelain;
+      margin: 0;
+      padding: 0;
+    }
+
+    .stat-icon {
+      font-size: 20px;
+    }
+  }
+
+  .cava-widget {
+    padding: 4px 8px;
+
+    levelbar.cava-bar {
+      min-width: 3px;
+      min-height: 20px;
+      border-radius: 0;
+      background: transparent;
+
+      trough {
+        min-width: 3px;
+        min-height: 20px;
+        border-radius: 2px;
+        background: rgba($porcelain, 0.1);
+      }
+
+      block.filled {
+        border-radius: 2px;
+        background: linear-gradient(to top, $brick-red, color.scale($brick-red, $lightness: 25%));
+        border: none;
+      }
+    }
+  }
+
+  .tray {
+    button.tray-item,
+    menubutton.tray-item {
+      min-height: 18px;
+      border: none;
+      background: transparent;
+      padding: 0 4px;
+      margin: 0;
+      border-radius: 4px;
+      transition: all 200ms ease;
+
+      &:hover {
+        background: rgba($brick-red, 0.15);
+        border-radius: 8px;
+      }
+
+      > button {
+        min-height: 18px;
+        border: none;
+        background: transparent;
+        padding: 0;
+        margin: 0;
+        border-radius: 4px;
+
+        &:hover {
+          background: rgba($brick-red, 0.15);
+          border-radius: 8px;
+        }
+      }
+    }
+  }
+
+  popover.tray-menu {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+
+    > contents {
+      background: transparent;
+      border: none;
+    }
+
+    box {
+      background: rgba($shadow-grey, 0.98);
+      border-radius: 12px;
+      padding: 4px;
+      border: none;
+    }
+
+    modelbutton {
+      background: transparent;
+      border: none;
+      border-radius: 4px;
+      padding: 2px 6px;
+      margin: 1px 0;
+      color: $porcelain;
+      font-size: 12px;
+      transition: all 200ms ease;
+
+      &:hover {
+        background: rgba($brick-red, 0.2);
+      }
+
+      label {
+        color: $porcelain;
+      }
+    }
+
+    button.tray-menu-item {
+      background: transparent;
+      border: none;
+      border-radius: 4px;
+      padding: 2px 6px;
+      margin: 1px 0;
+      transition: all 200ms ease;
+
+      &:hover {
+        background: rgba($brick-red, 0.2);
+      }
+
+      box {
+        background: transparent;
+
+        label {
+          color: $porcelain;
+          font-size: 12px;
+        }
+
+        label.power-icon {
+          font-size: 14px;
+          margin-right: 6px;
+        }
+      }
+    }
+  }
+}
